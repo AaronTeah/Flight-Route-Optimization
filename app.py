@@ -16,6 +16,7 @@ with st.form("airport_form"):
     
     # Create checkboxes for each airport
     st.write("Select airports from the list below:")
+    st.write("Note: Los Angeles International Airport (LAX) is the start point and ending point. ")
     selected_airports = []
     for airport in airport_data_select['Airport'][1:]:
         if st.checkbox(airport, key=airport):
