@@ -185,3 +185,7 @@ best_route, best_distance, history = genetic_algorithm(distance_matrix, pop_size
 best_route_details = selected_airports.iloc[best_route]
 st.write(best_route_details)
 st.write(best_distance)
+# End time
+end_time = time.time()
+total_runtime = end_time - start_time
+st.write(f"Total Runtime: {total_runtime} seconds")
