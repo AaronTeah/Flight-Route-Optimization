@@ -268,6 +268,6 @@ plt.grid(True)
 st.pyplot(fig)
 
 st.write("Total distance of random route: ", random_distance)
-st.write("Improved Percentage compare with Optimal Route: ", improvement_percentage)
+st.title(f"The optimal route is better than random route {improvement_percentage}%")
 
 
