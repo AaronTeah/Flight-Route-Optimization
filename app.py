@@ -188,7 +188,7 @@ best_route_details = best_route_details.drop(columns=['ID']).reset_index(drop=Tr
 # Streamlit app to display the results
 st.title("Best Route Details")
 st.table(best_route_details)
-st.write("Total distance: ", best_distance)
+st.write("Total distance: {best_distance} km")
 # End time
 end_time = time.time()
 total_runtime = end_time - start_time
