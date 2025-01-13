@@ -212,7 +212,7 @@ plt.legend()
 plt.grid(True)
 st.pyplot(fig)
 
-st.write("Total distance: {best_distance} km")
+st.write(f"Total distance: {best_distance} km")
 # End time
 end_time = time.time()
 total_runtime = end_time - start_time
@@ -255,7 +255,7 @@ plt.plot(longitudes, latitudes, color='red', linestyle='-', linewidth=1, label='
 for i, name in enumerate(airport_names):
     plt.text(longitudes[i], latitudes[i], f'{i + 1}. {name.split(" ")[0]}', fontsize=8)
 # Add labels and legend
-plt.title('Optimized Flight Route')
+plt.title('Random Flight Route')
 plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 plt.legend()
