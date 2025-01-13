@@ -190,34 +190,6 @@ end_time = time.time()
 total_runtime = end_time - start_time
 st.write(f"Total Runtime: {total_runtime} seconds")
 
-# Visualization of performance
-fig = plt.figure(figsize=(10, 6))
-plt.plot(history, label='Total Distance')
-plt.title('Genetic Algorithm Performance')
-plt.xlabel('Generation')
-plt.ylabel('Total Distance (km)')
-plt.legend()
-st.pyplot(fig)
-
-################################# Baseline comparison using a random route ##################################
-def random_route_baseline(distance_matrix):
-    num_airports = len(distance_matrix)
-    random_route = [0] + random.sample(range(1, num_airports), num_airports - 1) + [0]
-    random_distance = fitness(random_route, distance_matrix)
-    return random_route, random_distance
-
-# Generate a random route and calculate its distance
-random_route, random_distance = random_route_baseline(distance_matrix)
-
-# Calculate improvement percentage
-improvement_percentage = ((random_distance - best_distance) / random_distance) * 100
-
-# Display results
-random_route_details = selected_airports.iloc[random_route]
-st.write(random_route_details)
-st.write(random_distance)
-st.write(improvement_percentage)
-
 ########################################## visualize the route ###################################
 # Extract coordinates from the route
 latitudes = [selected_airports.iloc[i]['Latitude'] for i in best_route]
@@ -240,3 +212,32 @@ plt.ylabel('Latitude')
 plt.legend()
 plt.grid(True)
 st.pyplot(fig)
+
+# Visualization of performance
+fig = plt.figure(figsize=(10, 6))
+plt.plot(history, label='Total Distance')
+plt.title('Genetic Algorithm Performance')
+plt.xlabel('Generation')
+plt.ylabel('Total Distance (km)')
+plt.legend()
+st.pyplot(fig)
+
+################################# Baseline comparison using a random route ##################################
+st.header("Baseline comparison using a random route", divider="gray")
+def random_route_baseline(distance_matrix):
+    num_airports = len(distance_matrix)
+    random_route = [0] + random.sample(range(1, num_airports), num_airports - 1) + [0]
+    random_distance = fitness(random_route, distance_matrix)
+    return random_route, random_distance
+
+# Generate a random route and calculate its distance
+random_route, random_distance = random_route_baseline(distance_matrix)
+
+# Calculate improvement percentage
+improvement_percentage = ((random_distance - best_distance) / random_distance) * 100
+
+# Display results
+random_route_details = selected_airports.iloc[random_route]
+st.write(random_route_details)
+st.write(random_distance)
+st.write(improvement_percentage)
