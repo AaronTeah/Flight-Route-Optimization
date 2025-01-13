@@ -10,24 +10,6 @@ st.set_page_config(
 )
 st.header("Flight Route Optimization", divider="gray") 
 
-
-# Inject CSS to add a background image
-background_css = '''
-<style>
-body {
-    background-image: url('https://ca-times.brightspotcdn.com/dims4/default/bbd3dd7/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F56%2Fe1%2Fddbf62434f65aef238d69faea230%2Fla-fi-lax-downtown-plane.jpg'); /* Replace with your image URL */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-}
-</style>
-'''
-
-# Display the CSS
-st.markdown(background_css, unsafe_allow_html=True)
-
-
 # Load the dataset
 file_path_select = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
 airport_data_select = pd.read_csv(file_path_select)
