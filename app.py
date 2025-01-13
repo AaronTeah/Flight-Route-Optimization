@@ -219,27 +219,24 @@ st.write(random_distance)
 st.write(improvement_percentage)
 
 ########################################## visualize the route ###################################
-def visualize_route(route, airport_data):
-    # Extract coordinates from the route
-    latitudes = [airport_data.iloc[i]['Latitude'] for i in route]
-    longitudes = [airport_data.iloc[i]['Longitude'] for i in route]
-    airport_names = [airport_data.iloc[i]['Airport'] for i in route]
+# Extract coordinates from the route
+latitudes = [selected_airports.iloc[i]['Latitude'] for i in best_route]
+longitudes = [selected_airports.iloc[i]['Longitude'] for i in best_route]
+airport_names = [selected_airports.iloc[i]['Airport'] for i in best_route]
 
-    # Create the plot
-    plt.figure(figsize=(10, 6))
-    plt.scatter(longitudes, latitudes, color='blue', label='Airports')
-    plt.plot(longitudes, latitudes, color='red', linestyle='-', linewidth=1, label='Route')
+# Create the plot
+fig = plt.figure(figsize=(10, 6))
+plt.scatter(longitudes, latitudes, color='blue', label='Airports')
+plt.plot(longitudes, latitudes, color='red', linestyle='-', linewidth=1, label='Route')
 
-    # Annotate each airport
-    for i, name in enumerate(airport_names):
-        plt.text(longitudes[i], latitudes[i], f'{i + 1}. {name.split(" ")[0]}', fontsize=8)
+# Annotate each airport
+for i, name in enumerate(airport_names):
+    plt.text(longitudes[i], latitudes[i], f'{i + 1}. {name.split(" ")[0]}', fontsize=8)
 
-    # Add labels and legend
-    plt.title('Optimized Flight Route')
-    plt.xlabel('Longitude')
-    plt.ylabel('Latitude')
-    plt.legend()
-    plt.grid(True)
-    plt.show()
-
-st.write(visualize_route(best_route, selected_airports))
+# Add labels and legend
+plt.title('Optimized Flight Route')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.legend()
+plt.grid(True)
+st.pyplot(fig)
