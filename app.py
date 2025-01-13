@@ -7,6 +7,17 @@ st.set_page_config(
 )
 st.header("Flight Route Optimization", divider="gray") 
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+background-size: cover;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 # Load the dataset
 file_path_select = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
 airport_data_select = pd.read_csv(file_path_select)
