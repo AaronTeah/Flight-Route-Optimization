@@ -51,7 +51,7 @@ with st.form("airport_form"):
 
 ######################## Data Preparation for GA ############################
 # Load the uploaded CSV file to examine its content
-file_path = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
+file_path = 'selected_airports.csv'
 airport_data = pd.read_csv(file_path)
 
 # Display the first few rows of the dataset to understand its structure
