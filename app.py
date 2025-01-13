@@ -227,10 +227,8 @@ with st.form("airport_form"):
         # Save the map to an HTML file and display it
         map_file_path = "best_flight_route_map.html"
         lax_map.save(map_file_path)
-        map_file_path
         # Display the map in Streamlit
-        st.components.v1.html(lax_map._repr_html_(), height=600)
-
+        st.components.v1.html(lax_map._repr_html_(), height=400)
       
         ################################# Baseline comparison using a random route ##################################
         st.title("Baseline comparison using a random route")
