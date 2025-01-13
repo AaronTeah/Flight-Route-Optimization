@@ -24,8 +24,19 @@ with st.form("airport_form"):
     submitted = st.form_submit_button("Submit")
 
     if submitted:
+        # Extract the first airport
+        first_airport = airport_data.iloc[0]
+        selected_airports_data = airport_data[airport_data['Airport'].isin(selected_airports)]
+
+        # Combine the first airport and selected airports
+        result_df = pd.concat([first_airport.to_frame().T, selected_airports_data], ignore_index=True)
+
+        # Save to a new CSV file
+        result_csv_path = "selected_airport/selected_airports.csv"
+        result_df.to_csv(result_csv_path, index=False)
         st.write("You selected the following airports:")
-        st.write(selected_airports)
+        st.write(result_df)
+        st.success(f"CSV file created successfully: {result_csv_path}")
 
 # Create a form
 with st.form("input_form"):
@@ -36,9 +47,9 @@ with st.form("input_form"):
     # Submit button inside the form
     submitted = st.form_submit_button("Confirm")
 
-# Code after form submission
-if submitted:
-    st.write("You have confirmed the parameters!")
-    st.write("Population Size: ", pop_size)
-    st.write("Number of Generation: ", num_generations)
-    st.write("Mutation Rate: ", mutation_rate) 
+    # Code after form submission
+    if submitted:
+        st.write("You have confirmed the parameters!")
+        st.write("Population Size: ", pop_size)
+        st.write("Number of Generation: ", num_generations)
+        st.write("Mutation Rate: ", mutation_rate) 
