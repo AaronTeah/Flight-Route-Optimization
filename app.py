@@ -7,8 +7,8 @@ st.set_page_config(
 st.header("Flight Route Optimization", divider="gray") 
 
 # Load the dataset
-file_path = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
-airport_data = pd.read_csv(file_path)
+file_path_select = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
+airport_data_select = pd.read_csv(file_path_select)
 
 # Create a form widget
 with st.form("airport_form"):
@@ -16,7 +16,7 @@ with st.form("airport_form"):
     # Create checkboxes for each airport
     st.write("Select airports from the list below:")
     selected_airports = []
-    for airport in airport_data['Airport'][1:]:
+    for airport in airport_data_select['Airport'][1:]:
         if st.checkbox(airport, key=airport):
             selected_airports.append(airport)
 
@@ -31,13 +31,13 @@ with st.form("airport_form"):
 
     if submitted:
         # Extract the first airport
-        first_airport = airport_data.iloc[0]
-        selected_airports_data = airport_data[airport_data['Airport'].isin(selected_airports)]
+        first_airport = airport_data_select.iloc[0]
+        selected_airports_data = airport_data_select[airport_data_select['Airport'].isin(selected_airports)]
         # Combine the first airport and selected airports
         result_df = pd.concat([first_airport.to_frame().T, selected_airports_data], ignore_index=True)
 
         # Save to a new CSV file
-        result_csv_path = "selected_airport/selected_airports.csv"
+        result_csv_path = "selected_airports.csv"
         result_df.to_csv(result_csv_path, index=False)
         st.write("You selected the following airports:")
         st.write(result_df)
@@ -47,3 +47,7 @@ with st.form("airport_form"):
         st.write("Population Size: ", pop_size)
         st.write("Number of Generation: ", num_generations)
         st.write("Mutation Rate: ", mutation_rate) 
+
+
+######################## Data Preparation for GA ############################
+
