@@ -183,7 +183,11 @@ def genetic_algorithm(distance_matrix, pop_size, num_generations, mutation_rate)
 best_route, best_distance, history = genetic_algorithm(distance_matrix, pop_size=300, num_generations=700, mutation_rate=0.01)
 # Display the best route and its distance
 best_route_details = selected_airports.iloc[best_route]
-st.write(best_route_details)
+best_route_details = best_route_details.drop(columns=['ID']).reset_index(drop=True)
+
+# Streamlit app to display the results
+st.title("Best Route Details")
+st.table(best_route_details)
 st.write("Total distance: ", best_distance)
 # End time
 end_time = time.time()
@@ -241,4 +245,4 @@ random_route_details = selected_airports.iloc[random_route]
 st.write("Random Route")
 st.write(random_route_details)
 st.write("Total distance of random route: ", random_distance)
-st.write(improvement_percentage)
+st.write("Improved Percentage: ", improvement_percentage)
