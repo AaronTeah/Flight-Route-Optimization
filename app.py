@@ -7,6 +7,8 @@ st.set_page_config(
   layout="wide", 
   page_title="Flight Route Optimization"
 )
+st.header("Flight Route Optimization", divider="gray") 
+
 
 st.markdown(
     """
@@ -18,11 +20,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-st.header("Flight Route Optimization", divider="gray") 
-
-
-
 
 # Inject CSS to add a background image
 background_css = '''
