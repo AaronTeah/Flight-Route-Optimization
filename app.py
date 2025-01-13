@@ -55,7 +55,7 @@ with st.form("airport_form"):
 file_path = 'selected_airports.csv'
 airport_data = pd.read_csv(file_path)
 # Scatter plot for airport locations
-plt.figure(figsize=(12, 8))
+fig = plt.figure(figsize=(12, 8))
 plt.scatter(airport_data['Longitude'], airport_data['Latitude'], color='red', s=10, label='Airports')
 # Add labels for each airport
 for i, row in airport_data.iterrows():
@@ -72,6 +72,7 @@ plt.title('Airports Map with Names', fontsize=16)
 plt.xlabel('Longitude', fontsize=12)
 plt.ylabel('Latitude', fontsize=12)
 plt.legend()
-plt.grid(True)
 
+st.pyplot(fig)
+plt.grid(True)
 plt.show()
