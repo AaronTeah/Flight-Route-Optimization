@@ -8,7 +8,7 @@ st.set_page_config(
 st.header("Flight Route Optimization", divider="gray") 
 
 # Inject CSS to add a background image
-background_css = 
+background_css = '''
 <style>
 body {
     background-image: url('https://albairaq-kw.com/wp-content/uploads/2024/12/Flight.jpg'); /* Replace with your image URL */
@@ -18,12 +18,10 @@ body {
     background-position: center;
 }
 </style>
-
+'''
 
 # Display the CSS
 st.markdown(background_css, unsafe_allow_html=True)
-
-
 
 
 # Load the dataset
