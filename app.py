@@ -199,3 +199,47 @@ plt.ylabel('Total Distance (km)')
 plt.legend()
 st.pyplot(fig)
 
+################################# Baseline comparison using a random route ##################################
+def random_route_baseline(distance_matrix):
+    num_airports = len(distance_matrix)
+    random_route = [0] + random.sample(range(1, num_airports), num_airports - 1) + [0]
+    random_distance = fitness(random_route, distance_matrix)
+    return random_route, random_distance
+
+# Generate a random route and calculate its distance
+random_route, random_distance = random_route_baseline(distance_matrix)
+
+# Calculate improvement percentage
+improvement_percentage = ((random_distance - best_distance) / random_distance) * 100
+
+# Display results
+random_route_details = selected_airports.iloc[random_route]
+st.write(random_route_details)
+st.write(random_distance)
+st.write(improvement_percentage)
+
+########################################## visualize the route ###################################
+def visualize_route(route, airport_data):
+    # Extract coordinates from the route
+    latitudes = [airport_data.iloc[i]['Latitude'] for i in route]
+    longitudes = [airport_data.iloc[i]['Longitude'] for i in route]
+    airport_names = [airport_data.iloc[i]['Airport'] for i in route]
+
+    # Create the plot
+    plt.figure(figsize=(10, 6))
+    plt.scatter(longitudes, latitudes, color='blue', label='Airports')
+    plt.plot(longitudes, latitudes, color='red', linestyle='-', linewidth=1, label='Route')
+
+    # Annotate each airport
+    for i, name in enumerate(airport_names):
+        plt.text(longitudes[i], latitudes[i], f'{i + 1}. {name.split(" ")[0]}', fontsize=8)
+
+    # Add labels and legend
+    plt.title('Optimized Flight Route')
+    plt.xlabel('Longitude')
+    plt.ylabel('Latitude')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+st.write(visualize_route(best_route, selected_airports))
