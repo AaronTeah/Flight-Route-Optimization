@@ -189,3 +189,13 @@ st.write(best_distance)
 end_time = time.time()
 total_runtime = end_time - start_time
 st.write(f"Total Runtime: {total_runtime} seconds")
+
+# Visualization of performance
+fig = plt.figure(figsize=(10, 6))
+plt.plot(history, label='Total Distance')
+plt.title('Genetic Algorithm Performance')
+plt.xlabel('Generation')
+plt.ylabel('Total Distance (km)')
+plt.legend()
+st.pyplot(fig)
+
