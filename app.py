@@ -242,6 +242,9 @@ random_route, random_distance = random_route_baseline(distance_matrix)
 # Calculate improvement percentage
 improvement_percentage = ((random_distance - best_distance) / random_distance) * 100
 
+st.write("Random Route")
+st.table(random_route_details)
+
 ################### Visualize the random route ##########################
 # Extract coordinates from the route
 latitudes = [selected_airports.iloc[i]['Latitude'] for i in random_route]
@@ -264,8 +267,6 @@ st.pyplot(fig)
 # Display results
 random_route_details = selected_airports.iloc[random_route]
 random_route_details = selected_airports.drop(columns=['ID']).reset_index(drop=True)
-st.write("Random Route")
-st.table(random_route_details)
 st.write("Total distance of random route: ", random_distance)
 st.write("Improved Percentage: ", improvement_percentage)
 
