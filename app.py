@@ -55,26 +55,26 @@ with st.form("airport_form"):
 file_path = 'selected_airports.csv'
 airport_data = pd.read_csv(file_path)
 ################## Show the airport location in a simple plot#####################
-# Scatter plot for airport locations
-fig = plt.figure(figsize=(12, 8))
-plt.scatter(airport_data['Longitude'], airport_data['Latitude'], color='red', s=10, label='Airports')
-# Add labels for each airport
-for i, row in airport_data.iterrows():
-    plt.text(
-        row['Longitude'],
-        row['Latitude'],
-        row['Airport'],  # Display the airport name
-        fontsize=8,
-        ha='right',      # Horizontal alignment
-        va='bottom'      # Vertical alignment
-    )
-# Add title, labels, legend, and grid
-plt.title('Airports Map with Names', fontsize=16)
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.legend()
-plt.grid(True)
-st.pyplot(fig)
+# # Scatter plot for airport locations
+# fig = plt.figure(figsize=(12, 8))
+# plt.scatter(airport_data['Longitude'], airport_data['Latitude'], color='red', s=10, label='Airports')
+# # Add labels for each airport
+# for i, row in airport_data.iterrows():
+#     plt.text(
+#         row['Longitude'],
+#         row['Latitude'],
+#         row['Airport'],  # Display the airport name
+#         fontsize=8,
+#         ha='right',      # Horizontal alignment
+#         va='bottom'      # Vertical alignment
+#     )
+# # Add title, labels, legend, and grid
+# plt.title('Airports Map with Names', fontsize=16)
+# plt.xlabel('Longitude', fontsize=12)
+# plt.ylabel('Latitude', fontsize=12)
+# plt.legend()
+# plt.grid(True)
+# st.pyplot(fig)
 #################################### Data arrangement ############################################
 import numpy as np
 from geopy.distance import geodesic
@@ -184,7 +184,7 @@ best_route, best_distance, history = genetic_algorithm(distance_matrix, pop_size
 # Display the best route and its distance
 best_route_details = selected_airports.iloc[best_route]
 st.write(best_route_details)
-st.write(best_distance)
+st.write("Total distance: ", best_distance)
 # End time
 end_time = time.time()
 total_runtime = end_time - start_time
