@@ -167,7 +167,30 @@ with st.form("airport_form"):
         # Streamlit app to display the results
         st.title("Best Route Details")
         st.table(best_route_details)
+
+        ####################################### Geographic Map ####################################
+        import folium
+
+        # Create a map centered around LAX
+        lax_map = folium.Map(location=lax_coords, zoom_start=4)
         
+        # Add markers for each airport in the best route
+        for index, row in best_route_details.iterrows():
+            folium.Marker(
+                location=(row['Latitude'], row['Longitude']),
+                popup=row['Airport'],
+            ).add_to(lax_map)
+        
+        # Draw lines connecting the airports in the best route
+        route_coords = [(row['Latitude'], row['Longitude']) for _, row in best_route_details.iterrows()]
+        folium.PolyLine(route_coords, color="blue", weight=2.5, opacity=1).add_to(lax_map)
+        
+        # Save the map to an HTML file and display it
+        map_file_path = "best_flight_route_map.html"
+        lax_map.save(map_file_path)
+        # Display the map in Streamlit
+        st.components.v1.html(lax_map._repr_html_(), height=400)
+      
         ########################################## visualize the route ###################################
         # Extract coordinates from the route
         latitudes = [selected_airports.iloc[i]['Latitude'] for i in best_route]
@@ -206,29 +229,6 @@ with st.form("airport_form"):
         plt.ylabel('Total Distance (km)')
         plt.legend()
         st.pyplot(fig)
-
-        ####################################### Geographic Map ####################################
-        import folium
-
-        # Create a map centered around LAX
-        lax_map = folium.Map(location=lax_coords, zoom_start=4)
-        
-        # Add markers for each airport in the best route
-        for index, row in best_route_details.iterrows():
-            folium.Marker(
-                location=(row['Latitude'], row['Longitude']),
-                popup=row['Airport'],
-            ).add_to(lax_map)
-        
-        # Draw lines connecting the airports in the best route
-        route_coords = [(row['Latitude'], row['Longitude']) for _, row in best_route_details.iterrows()]
-        folium.PolyLine(route_coords, color="blue", weight=2.5, opacity=1).add_to(lax_map)
-        
-        # Save the map to an HTML file and display it
-        map_file_path = "best_flight_route_map.html"
-        lax_map.save(map_file_path)
-        # Display the map in Streamlit
-        st.components.v1.html(lax_map._repr_html_(), height=400)
       
         ################################# Baseline comparison using a random route ##################################
         st.title("Baseline comparison using a random route")
