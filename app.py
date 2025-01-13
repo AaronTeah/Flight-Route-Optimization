@@ -46,7 +46,6 @@ with st.form("airport_form"):
         result_df.to_csv(result_csv_path, index=False)
         st.write("You selected the following airports:")
         st.write(result_df)
-        st.success(f"CSV file created successfully: {result_csv_path}")
         # Print the parameters
         st.write("You have confirmed the parameters!")
         st.write("Population Size: ", pop_size)
