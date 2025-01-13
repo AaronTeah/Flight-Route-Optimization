@@ -16,7 +16,7 @@ with st.form("airport_form"):
 
     # Create checkboxes for each airport
     selected_airports = []
-    for airport in airport_data['Airport']:
+    for airport in airport_data['Airport'][1:]:
         if st.checkbox(airport, key=airport):
             selected_airports.append(airport)
 
