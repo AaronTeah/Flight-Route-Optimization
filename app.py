@@ -7,6 +7,9 @@ st.set_page_config(
 )
 st.header("Flight Route Optimization", divider="gray") 
 
+# Display a local image
+st.image("LAX.jpg", caption="This is a local image", use_column_width=True)
+
 # Load the dataset
 file_path_select = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
 airport_data_select = pd.read_csv(file_path_select)
