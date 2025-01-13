@@ -9,26 +9,23 @@ st.header("Flight Route Optimization", divider="gray")
 # Load the dataset
 file_path = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
 airport_data = pd.read_csv(file_path)
-if 'airport_names' not in st.session_state:
-    st.session_state.airport_names = airport_data['Airport'].tolist()
 
-# Function to add a new airport
-def add_airport():
-    if st.session_state.new_airport_name:
-        st.session_state.airport_names.append(st.session_state.new_airport_name)
-        st.session_state.new_airport_name = ""  # Clear input field
+# Create a form widget
+with st.form("airport_form"):
+    st.write("Select airports from the list below:")
 
-# Display current list of airports in a selectbox
-selected_airport = st.selectbox("Select an Airport:", st.session_state.airport_names)
-# Input field and button to add a new airport
-st.text_input("Add a new Airport:", key="new_airport_name")
-st.button("Add Airport", on_click=add_airport)
+    # Create checkboxes for each airport
+    selected_airports = []
+    for airport in airport_data['Airport']:
+        if st.checkbox(airport, key=airport):
+            selected_airports.append(airport)
 
-# Display the selected airport
-st.write(f"You selected: {selected_airport}")
-# Display the updated list of airports
-st.write("Updated list of airports:")
-st.write(st.session_state.airport_names)
+    # Submit button
+    submitted = st.form_submit_button("Submit")
+
+    if submitted:
+        st.write("You selected the following airports:")
+        st.write(selected_airports)
 
 # Create a form
 with st.form("input_form"):
