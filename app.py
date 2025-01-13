@@ -11,7 +11,7 @@ st.header("Flight Route Optimization", divider="gray")
 background_css = '''
 <style>
 body {
-    background-image: url('https://albairaq-kw.com/wp-content/uploads/2024/12/Flight.jpg'); /* Replace with your image URL */
+    background-image: url('https://ca-times.brightspotcdn.com/dims4/default/bbd3dd7/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F56%2Fe1%2Fddbf62434f65aef238d69faea230%2Fla-fi-lax-downtown-plane.jpg'); /* Replace with your image URL */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
