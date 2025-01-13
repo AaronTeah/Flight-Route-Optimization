@@ -244,7 +244,8 @@ improvement_percentage = ((random_distance - best_distance) / random_distance) *
 
 # Display results
 random_route_details = selected_airports.iloc[random_route]
+random_route_details = selected_airports.drop(columns=['ID']).reset_index(drop=True)
 st.write("Random Route")
-st.write(random_route_details)
+st.table(random_route_details)
 st.write("Total distance of random route: ", random_distance)
 st.write("Improved Percentage: ", improvement_percentage)
