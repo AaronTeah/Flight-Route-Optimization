@@ -27,10 +27,12 @@ with st.form("input_form"):
     selected_airport = st.selectbox("Select an Airport:", st.session_state.airport_names)
     # Input field and button to add a new airport
     st.text_input("Add a new Airport:", key="new_airport_name")
-    st.button("Add Airport", on_click=add_airport)
+    submitted = st.form_submit_button("Add Airport")
+    if submitted:
+        add_airport()
     
     # Submit button inside the form
-    submitted = st.form_submit_button("Confirm")
+    # submitted = st.form_submit_button("Confirm")
 
 # Code after form submission
 if submitted:
