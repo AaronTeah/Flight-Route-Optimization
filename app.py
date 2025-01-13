@@ -206,7 +206,7 @@ with st.form("airport_form"):
         
         # Annotate each airport
         for i, name in enumerate(airport_names):
-            plt.text(longitudes[i], latitudes[i], f'{i + 1}. {name.split(" ")[0]}', fontsize=8)
+            plt.text(longitudes[i], latitudes[i], f'{i + 1}. {name.split(" ")[0]}', fontsize=25)
         
         # Add labels and legend
         plt.title('Optimized Flight Route')
