@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 #streamlit page title and header setting
 st.set_page_config(
   page_title="Flight Route Optimization"
@@ -53,6 +54,24 @@ with st.form("airport_form"):
 # Load the uploaded CSV file to examine its content
 file_path = 'selected_airports.csv'
 airport_data = pd.read_csv(file_path)
+# Scatter plot for airport locations
+plt.figure(figsize=(12, 8))
+plt.scatter(airport_data['Longitude'], airport_data['Latitude'], color='red', s=10, label='Airports')
+# Add labels for each airport
+for i, row in airport_data.iterrows():
+    plt.text(
+        row['Longitude'],
+        row['Latitude'],
+        row['Airport'],  # Display the airport name
+        fontsize=8,
+        ha='right',      # Horizontal alignment
+        va='bottom'      # Vertical alignment
+    )
+# Add title, labels, legend, and grid
+plt.title('Airports Map with Names', fontsize=16)
+plt.xlabel('Longitude', fontsize=12)
+plt.ylabel('Latitude', fontsize=12)
+plt.legend()
+plt.grid(True)
 
-# Display the first few rows of the dataset to understand its structure
-st.write(airport_data)
+plt.show()
