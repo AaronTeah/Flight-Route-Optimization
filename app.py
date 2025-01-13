@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+#streamlit page title and header setting
+st.set_page_config(
+  layout="wide", 
+  page_title="Flight Route Optimization"
+)
+
 st.markdown(
     """
     <style>
@@ -13,11 +19,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-#streamlit page title and header setting
-st.set_page_config(
-  layout="wide", 
-  page_title="Flight Route Optimization"
-)
 st.header("Flight Route Optimization", divider="gray") 
 
 
