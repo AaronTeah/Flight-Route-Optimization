@@ -188,11 +188,6 @@ best_route_details = best_route_details.drop(columns=['ID']).reset_index(drop=Tr
 # Streamlit app to display the results
 st.title("Best Route Details")
 st.table(best_route_details)
-st.write("Total distance: {best_distance} km")
-# End time
-end_time = time.time()
-total_runtime = end_time - start_time
-st.write(f"Total Runtime: {total_runtime} seconds")
 
 ########################################## visualize the route ###################################
 # Extract coordinates from the route
@@ -217,6 +212,13 @@ plt.legend()
 plt.grid(True)
 st.pyplot(fig)
 
+st.write("Total distance: {best_distance} km")
+# End time
+end_time = time.time()
+total_runtime = end_time - start_time
+st.write(f"Total Runtime: {total_runtime} seconds")
+
+
 # Visualization of performance
 fig = plt.figure(figsize=(10, 6))
 plt.plot(history, label='Total Distance')
@@ -227,7 +229,7 @@ plt.legend()
 st.pyplot(fig)
 
 ################################# Baseline comparison using a random route ##################################
-st.header("Baseline comparison using a random route", divider="gray")
+st.title("Baseline comparison using a random route")
 def random_route_baseline(distance_matrix):
     num_airports = len(distance_matrix)
     random_route = [0] + random.sample(range(1, num_airports), num_airports - 1) + [0]
