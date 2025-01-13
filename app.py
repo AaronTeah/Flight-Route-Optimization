@@ -267,7 +267,7 @@ plt.legend()
 plt.grid(True)
 st.pyplot(fig)
 
-st.write("Total distance of random route: ", random_distance)
-st.title(f"The optimal route is better than random route {improvement_percentage}%")
+st.write(f"Total distance of random route: {random_distance}km")
+st.title(f"The Optimal Route is better than Random Route {improvement_percentage}%")
 
 
