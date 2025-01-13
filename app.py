@@ -5,21 +5,11 @@ import matplotlib.pyplot as plt
 #streamlit page title and header setting
 st.set_page_config(
   layout="wide", 
-  page_title="Flight Route Optimization"
+  page_title="Flight Route Optimization", 
+  page_icon="✈️"
 )
 st.header("Flight Route Optimization", divider="gray") 
 
-
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: lightblue;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 # Inject CSS to add a background image
 background_css = '''
