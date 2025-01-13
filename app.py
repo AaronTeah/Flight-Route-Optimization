@@ -7,6 +7,25 @@ st.set_page_config(
 )
 st.header("Flight Route Optimization", divider="gray") 
 
+# Inject CSS to add a background image
+background_css = """
+<style>
+body {
+    background-image: url('https://albairaq-kw.com/wp-content/uploads/2024/12/Flight.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+</style>
+"""
+
+# Display the CSS
+st.markdown(background_css, unsafe_allow_html=True)
+
+
+
+
 # Load the dataset
 file_path_select = 'Airport_Coordinates_Dataset__Real-World_Airports_.csv'
 airport_data_select = pd.read_csv(file_path_select)
