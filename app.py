@@ -8,6 +8,18 @@ st.set_page_config(
 )
 st.header("Flight Route Optimization", divider="gray") 
 
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: lightblue;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
 # Inject CSS to add a background image
 background_css = '''
 <style>
