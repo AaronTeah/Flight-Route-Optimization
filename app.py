@@ -161,7 +161,7 @@ with st.form("airport_form"):
         
             return best_route, best_distance, history
         ############################################### Run the Genetic Algorithm ######################################################
-        best_route, best_distance, history = genetic_algorithm(distance_matrix, pop_size=300, num_generations=700, mutation_rate=0.01)
+        best_route, best_distance, history = genetic_algorithm(distance_matrix, pop_size, num_generations, mutation_rate)
         # Display the best route and its distance
         best_route_details = selected_airports.iloc[best_route]
         best_route_details = best_route_details.drop(columns=['ID']).reset_index(drop=True)
