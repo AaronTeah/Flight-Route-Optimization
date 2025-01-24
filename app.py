@@ -6,18 +6,30 @@ st.set_page_config(
   page_title="Flight Route Optimization"
 )
 
-# Simulate a popup video on app load
-if "show_video" not in st.session_state:
-    st.session_state.show_video = True  # Automatically show the video when the app loads
+# Display an autoplay video on app load using HTML
+video_url = "https://www.youtube.com/watch?v=lR9MUteCqdM"  # Replace with your video URL
+video_html = f"""
+<div style="display: flex; justify-content: center; align-items: center;">
+    <video autoplay muted controls style="width: 80%; border: 2px solid gray; border-radius: 10px;">
+        <source src="{video_url}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+"""
+st.markdown(video_html, unsafe_allow_html=True)
 
-# Display the guidance video if the state is True
-if st.session_state.show_video:
-    st.write("### Guidance Video")
-    st.video("https://www.youtube.com/watch?v=lR9MUteCqdM")  # Replace with your video URL or local path
+# # Simulate a popup video on app load
+# if "show_video" not in st.session_state:
+#     st.session_state.show_video = True  # Automatically show the video when the app loads
 
-    # Button to close the video
-    if st.button("Close Video"):
-        st.session_state.show_video = False  # Close the video when the button is clicked
+# # Display the guidance video if the state is True
+# if st.session_state.show_video:
+#     st.write("### Guidance Video")
+#     st.video("https://www.youtube.com/watch?v=lR9MUteCqdM")  # Replace with your video URL or local path
+
+#     # Button to close the video
+#     if st.button("Close Video"):
+#         st.session_state.show_video = False  # Close the video when the button is clicked
 
 # Main app content
 st.header("Flight Route Optimization")
