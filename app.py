@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #streamlit page title and header setting
 st.set_page_config( 
-  page_title="Flight Route Optimization"
+  page_title="Flight Route Optimization", 
   layout="wide"
 )
 
