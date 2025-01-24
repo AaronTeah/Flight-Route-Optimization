@@ -4,8 +4,28 @@ import matplotlib.pyplot as plt
 #streamlit page title and header setting
 st.set_page_config( 
   page_title="Flight Route Optimization"
+  layout="wide"
 )
-st.header("Flight Route Optimization", divider="gray") 
+
+# Simulate a popup video on app load
+if "show_video" not in st.session_state:
+    st.session_state.show_video = True  # Automatically show the video when the app loads
+
+# Display the guidance video if the state is True
+if st.session_state.show_video:
+    st.write("### Guidance Video")
+    st.video("https://www.youtube.com/watch?v=lR9MUteCqdM")  # Replace with your video URL or local path
+
+    # Button to close the video
+    if st.button("Close Video"):
+        st.session_state.show_video = False  # Close the video when the button is clicked
+
+# Main app content
+st.header("Flight Route Optimization")
+st.write("Welcome to the Flight Route Optimization tool!")
+st.write("Use the form below to select airports and optimize your flight route.")
+#####################
+#st.header("Flight Route Optimization", divider="gray") 
 
 # Display a local image
 st.image("LAX.jpg", use_container_width=True)
