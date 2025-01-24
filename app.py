@@ -7,13 +7,10 @@ st.set_page_config(
 )
 
 # Display an autoplay video on app load using HTML
-video_url = "https://www.youtube.com/watch?v=lR9MUteCqdM"  # Replace with your video URL
+video_url = "https://www.youtube.com/embed/lR9MUteCqdM?si=IrTV4VT1nd4Qj1gT"  # Replace with your video URL
 video_html = f"""
-<div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
-    <video autoplay loop muted controls style="width: 80%; border: 2px solid gray; border-radius: 10px;">
-        <source src="{video_url}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <iframe width="80%" height="400" src="{video_url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 """
 # Render the video
