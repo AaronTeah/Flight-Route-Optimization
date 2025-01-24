@@ -189,13 +189,13 @@ with st.form("airport_form"):
         folium.PolyLine(route_coords, color="blue", weight=2.5, opacity=1).add_to(lax_map)
 
         # Display the map dynamically in Streamlit
-        st.write("### Optimized Flight Route Map")
-        st_folium(lax_map, width=800, height=500)
+        # st.write("### Optimized Flight Route Map")
+        # st_folium(lax_map, width=800, height=500)
         # Save the map to an HTML file and display it
-        # map_file_path = "best_flight_route_map.html"
-        # lax_map.save(map_file_path)
+        map_file_path = "best_flight_route_map.html"
+        lax_map.save(map_file_path)
         # Display the map in Streamlit
-        # st.components.v1.html(lax_map._repr_html_(), height=400)
+        st.components.v1.html(lax_map._repr_html_(), height=400)
       
         ########################################## visualize the route ###################################
         # Extract coordinates from the route
