@@ -10,7 +10,8 @@ st.set_page_config(
 video_url = "https://www.youtube.com/embed/lR9MUteCqdM?autoplay=1&loop=1&playlist=lR9MUteCqdM"  # Replace with your video URL
 video_html = f"""
 <div style="display: flex; justify-content: center; align-items: center;">
-    <iframe width="80%" height="400" src="{video_url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe width="800" height="450" src="{youtube_embed_url}" frameborder="0" 
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 """
 # Render the video
