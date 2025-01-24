@@ -9,13 +9,14 @@ st.set_page_config(
 # Display an autoplay video on app load using HTML
 video_url = "https://www.youtube.com/watch?v=lR9MUteCqdM"  # Replace with your video URL
 video_html = f"""
-<div style="display: flex; justify-content: center; align-items: center;">
-    <video autoplay muted controls style="width: 80%; border: 2px solid gray; border-radius: 10px;">
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+    <video autoplay loop muted controls style="width: 80%; border: 2px solid gray; border-radius: 10px;">
         <source src="{video_url}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>
 """
+# Render the video
 st.markdown(video_html, unsafe_allow_html=True)
 
 # # Simulate a popup video on app load
