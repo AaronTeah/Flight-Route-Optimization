@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 # Display an autoplay video on app load using HTML
-video_url = "https://www.youtube.com/embed/lR9MUteCqdM?autoplay=1&loop=1&playlist=lR9MUteCqdM"  # Replace with your video URL
+youtube_embed_url = "https://www.youtube.com/embed/lR9MUteCqdM?autoplay=1&loop=1&playlist=lR9MUteCqdM"  # Replace with your video URL
 video_html = f"""
 <div style="display: flex; justify-content: center; align-items: center;">
     <iframe width="800" height="450" src="{youtube_embed_url}" frameborder="0" 
