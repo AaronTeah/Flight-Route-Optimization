@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 # Display an autoplay video on app load using HTML
-youtube_embed_url = "https://www.youtube.com/embed/lR9MUteCqdM?autoplay=1&loop=1&playlist=lR9MUteCqdM&mute=1"  # Replace with your video URL
+youtube_embed_url = "https://www.youtube.com/embed/MRfS8ppKwpo?si=DLyvcPdyhLb-xqCp?autoplay=1&loop=1&playlist=MRfS8ppKwpo?si=DLyvcPdyhLb-xqCp=1"  
 video_html = f"""
 <div style="display: flex; justify-content: center; align-items: center;">
     <iframe width="800" height="450" src="{youtube_embed_url}" frameborder="0" 
@@ -24,7 +24,7 @@ st.markdown(video_html, unsafe_allow_html=True)
 # # Display the guidance video if the state is True
 # if st.session_state.show_video:
 #     st.write("### Guidance Video")
-#     st.video("https://www.youtube.com/watch?v=lR9MUteCqdM")  # Replace with your video URL or local path
+#     st.video("https://www.youtube.com/watch?v=lR9MUteCqdM")  
 
 #     # Button to close the video
 #     if st.button("Close Video"):
