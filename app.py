@@ -7,7 +7,7 @@ st.set_page_config(
 )
 st.write("### Guidance Video")
 # Display an autoplay video on app load using HTML
-youtube_embed_url = "https://www.youtube.com/embed/MRfS8ppKwpo?autoplay=1&loop=1&playlist=MRfS8ppKwpo&mute=1"  
+youtube_embed_url = "https://www.youtube.com/embed/JBoe1k2K4vQ?autoplay=1&loop=1&playlist=JBoe1k2K4vQ&mute=1"  
 video_html = f"""
 <div style="display: flex; justify-content: center; align-items: center;">
     <iframe width="800" height="450" src="{youtube_embed_url}" frameborder="0" 
