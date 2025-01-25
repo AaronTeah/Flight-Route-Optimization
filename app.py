@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 st.set_page_config( 
   page_title="Flight Route Optimization"
 )
-st.write("### Guidance Video")
 # Display an autoplay video on app load using HTML
 youtube_embed_url = "https://www.youtube.com/embed/JBoe1k2K4vQ?autoplay=1&loop=1&playlist=JBoe1k2K4vQ&mute=1"  
 video_html = f"""
