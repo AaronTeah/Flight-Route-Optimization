@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 st.set_page_config( 
   page_title="Flight Route Optimization"
 )
-
+st.write("### Guidance Video")
 # Display an autoplay video on app load using HTML
 youtube_embed_url = "https://www.youtube.com/embed/MRfS8ppKwpo?autoplay=1&loop=1&playlist=MRfS8ppKwpo&mute=1"  
 video_html = f"""
@@ -16,19 +16,6 @@ video_html = f"""
 """
 # Render the video
 st.markdown(video_html, unsafe_allow_html=True)
-
-# # Simulate a popup video on app load
-# if "show_video" not in st.session_state:
-#     st.session_state.show_video = True  # Automatically show the video when the app loads
-
-# # Display the guidance video if the state is True
-# if st.session_state.show_video:
-#     st.write("### Guidance Video")
-#     st.video("https://www.youtube.com/watch?v=lR9MUteCqdM")  
-
-#     # Button to close the video
-#     if st.button("Close Video"):
-#         st.session_state.show_video = False  # Close the video when the button is clicked
 
 # Main app content
 st.header("Flight Route Optimization")
